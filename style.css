@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #b21baa, #ca9911);
+}
+
+.container {
+  padding: 30px;
+  width: 540px;
+  max-width: 100%;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 40px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: black;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 30px;
+  margin-bottom: 25px;
+}
+input#input-box {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1 0 200px;
+  width: 100%;
+  margin-right: 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 40px;
+  transition: border-color 0.25s ease-in;
+}
+input#input-box:focus {
+  border-color: black;
+}
+
+button#add-task-button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: #794646;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+  flex: 0 1 0%;
+  width: auto;
+}
+
+@media (max-width: 464px) {
+  form {
+    flex-wrap: wrap;
+  }
+  input#input-box {
+    margin-right: 0;
+    margin-bottom: 24px;
+    flex: 0 0 auto;
+  }
+  button#add-task-button {
+    margin: 0 auto;
+  }
+}
+
+ul li.task {
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.25;
+  background: #ddd6d6;
+  padding: 12px 56px 12px 44px;
+  margin: 10px 0;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 22px;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+ul li.task.checked {
+  color: #343232;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+ul li.task button.remove {
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  color: #555;
+  font-size: 1em;
+  line-height: 1;
+  z-index: 1;
+}
+
+ul li.task span.checkbox {
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  cursor: pointer;
+  appearance: none;
+  z-index: 1;
+}
+
+ul li.task span.checkbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+ul li.task span.checkbox::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.25s ease-in;
+}
+
+ul li.task.checked span.checkbox::after {
+  opacity: 1;
+}
+
+ul li.task span.task-description {
+  display: block;
+  word-break: break-word;
+}
+
+button.remove i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/*ul li.task span {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 44px;
+  height: 44px;
+  font-size: 1em;
+  color: #555;
+  text-align: center;
+}*/
